@@ -1,5 +1,7 @@
-// computerSelection Function returns either Rock, Paper, or Scissors
+const computer = computerSelection();
+const player = playerSelection();
 
+// computerSelection Function returns either Rock, Paper, or Scissors
 function computerSelection() {
     const computerChoice = Math.floor(Math.random() * 3);
     let selection;
@@ -27,9 +29,43 @@ function playerSelection() {
 }
 // console.log(playerSelection());
 
+// rpsRound function takes computerSelection and playerSelection argument and returns string that declares the winner
+function rpsRound(player, computer) {
+    console.log("Player Chooses: " + player);
+    console.log("Computer Chooses: " + computer);
 
-// rpsRound function takes computerSelection and playerSelection argument
-    //returns string that declares the winner
+    let message;
+
+    if (player === "rock") {
+        if (computer === "rock") {
+            message = "It's a Tie!";
+        } else if (computer === "paper") {
+            message = "Paper beats Rock! Computer Wins!";
+        } else {
+            message = "Rock beats scissors! Player wins!";
+        }
+    } else if (player === "paper") {
+        if (computer === "paper") {
+            message = "It's a Tie!";
+        } else if (computer === "rock") {
+            message = "Paper beats Rock! Player Wins!";
+        } else {
+            message = "Scissors beat Paper! Computer Wins!";
+        }
+    } else {
+        if (computer === "scissors") {
+            message = "It's a Tie!";
+        } else if (computer === "rock") {
+            message = "Rock beats Scissors! Computer Wins!";
+        } else {
+            message = "Scissors beat Paper! Player Wins!";
+        }
+    }
+
+    return message;
+}
+
+console.log(rpsRound(player, computer));
 
 // game function
     //loops through five rounds and keeps score of the winner
