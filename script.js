@@ -13,11 +13,20 @@ function computerSelection() {
     };
     return selection;
 }
-
-console.log(computerSelection());
+// console.log(computerSelection());
 
 // playerSelection function
-    // prompts the user for their selection and returns their selection.
+function playerSelection() {
+    let playerInput = prompt("Please choose 'Rock', 'Paper', or 'Scissors': ");
+    playerInput = playerInput.toLowerCase();
+    while (playerInput !== "rock" && playerInput !== "paper" && playerInput !== "scissors") {
+        playerInput = prompt("Not an Option. Please choose 'Rock', 'Paper', or 'Scissors': ");
+        playerInput = playerInput.toLowerCase();
+    }
+    return playerInput;
+}
+// console.log(playerSelection());
+
 
 // rpsRound function takes computerSelection and playerSelection argument
     //returns string that declares the winner
