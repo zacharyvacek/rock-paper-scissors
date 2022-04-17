@@ -1,6 +1,3 @@
-const computer = computerSelection();
-const player = playerSelection();
-
 // computerSelection Function returns either Rock, Paper, or Scissors
 function computerSelection() {
     const computerChoice = Math.floor(Math.random() * 3);
@@ -31,41 +28,91 @@ function playerSelection() {
 
 // rpsRound function takes computerSelection and playerSelection argument and returns string that declares the winner
 function rpsRound(player, computer) {
-    console.log("Player Chooses: " + player);
-    console.log("Computer Chooses: " + computer);
-
-    let message;
-
+    let winner;
     if (player === "rock") {
         if (computer === "rock") {
-            message = "It's a Tie!";
+            winner = "tie";
         } else if (computer === "paper") {
-            message = "Paper beats Rock! Computer Wins!";
+            winner = "computer";
         } else {
-            message = "Rock beats scissors! Player wins!";
+            winner = "player";
         }
     } else if (player === "paper") {
         if (computer === "paper") {
-            message = "It's a Tie!";
+            winner = "tie";
         } else if (computer === "rock") {
-            message = "Paper beats Rock! Player Wins!";
+            winner = "player";
         } else {
-            message = "Scissors beat Paper! Computer Wins!";
+            winner = "computer";
         }
     } else {
         if (computer === "scissors") {
-            message = "It's a Tie!";
+            winner = "tie";
         } else if (computer === "rock") {
-            message = "Rock beats Scissors! Computer Wins!";
+            winner = "computer";
         } else {
-            message = "Scissors beat Paper! Player Wins!";
+            winner = "player";
         }
     }
+    return winner;
+}
+// console.log(rpsRound(player, computer));
 
-    return message;
+//rematch function
+function rematch() {
+    let wantRematch = prompt("Do you want a rematch? Y/n");
+    wantRematch = wantRematch.toLowerCase();
+    while (wantRematch !== "y" && wantRematch !== "n") {
+        wantRematch = prompt("Not an Option. Y/n");
+        wantRematch = wantRematch.toLowerCase();
+    }
+    if (wantRematch === "y") {
+        game();
+    } else {
+        console.log("Thanks for playing!");
+    }
 }
 
-console.log(rpsRound(player, computer));
-
 // game function
-    //loops through five rounds and keeps score of the winner
+//loops through five rounds and keeps score of the winner
+function game() {
+    let message;
+    playerScore = 0;
+    computerScore = 0
+    for (let i = 0; i < 5; i++) {
+        let message;
+        let computerChoice = computerSelection();
+        let playerChoice = playerSelection();
+        let winner = rpsRound(playerChoice, computerChoice);
+        let winnerCapitalized = winner.charAt(0).toUpperCase() + winner.slice(1);
+        if (winner === "player") {
+            playerScore++;
+        } else if (winner === "computer") {
+            computerScore++;
+        }
+        message = `Round ${i + 1}:\n`;
+        message += `Player chose ${playerChoice}.\n`;
+        message += `Computer chose ${computerChoice}.\n`
+        if (winner === "player") {
+            message += `${winnerCapitalized} Wins!\n`;
+        } else if (winner === "computer") {
+            message += `${winnerCapitalized} Wins!\n`;
+        } else {
+            message += "It's a Tie!\n";
+        }
+        message += `Player has ${playerScore} points.\n`;
+        message += `Computer has ${computerScore} points.\n`;
+        console.clear();
+        console.log(message);
+    }
+    if (playerScore > computerScore) {
+        console.log("PLAYER WINS!");
+    } else if (computerScore > playerScore) {
+        console.log("COMPUTER WINS!");
+    } else {
+        console.log("It's a Tie...");
+    }
+    rematch();
+}
+
+game();
