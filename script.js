@@ -1,6 +1,10 @@
+function getRandomNum() {
+    const randNum = Math.floor(Math.random() * 3);
+}
+
 // computerSelection Function returns either Rock, Paper, or Scissors
 function computerSelection() {
-    const computerChoice = Math.floor(Math.random() * 3);
+    const computerChoice = getRandomNum();
     let selection;
     // console.log(computerChoice);
     if (computerChoice === 0) {
@@ -12,7 +16,6 @@ function computerSelection() {
     };
     return selection;
 }
-// console.log(computerSelection());
 
 // playerSelection function
 function playerSelection() {
@@ -24,7 +27,6 @@ function playerSelection() {
     }
     return playerInput;
 }
-// console.log(playerSelection());
 
 // rpsRound function takes computerSelection and playerSelection argument and returns string that declares the winner
 function rpsRound(player, computer) {
@@ -56,7 +58,6 @@ function rpsRound(player, computer) {
     }
     return winner;
 }
-// console.log(rpsRound(player, computer));
 
 //rematch function
 function rematch() {
