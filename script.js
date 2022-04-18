@@ -2,7 +2,6 @@ function getRandomNum() {
     const randNum = Math.floor(Math.random() * 3);
 }
 
-// computerSelection Function returns either Rock, Paper, or Scissors
 function computerSelection() {
     const computerChoice = getRandomNum();
     let selection;
@@ -17,7 +16,6 @@ function computerSelection() {
     return selection;
 }
 
-// playerSelection function
 function playerSelection() {
     let playerInput = prompt(
         "Please choose 'Rock', 'Paper', or 'Scissors': ");
@@ -32,7 +30,6 @@ function playerSelection() {
     return playerInput;
 }
 
-// rpsRound function takes computerSelection and playerSelection argument and returns string that declares the winner
 function rpsRound(player, computer) {
     let winner;
     if (player === "rock") {
@@ -63,7 +60,6 @@ function rpsRound(player, computer) {
     return winner;
 }
 
-//rematch function
 function rematch() {
     let wantRematch = prompt("Do you want a rematch? Y/n");
     wantRematch = wantRematch.toLowerCase();
@@ -78,8 +74,6 @@ function rematch() {
     }
 }
 
-// game function
-//loops through five rounds and keeps score of the winner
 function game() {
     let message;
     playerScore = 0;
