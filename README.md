@@ -9,3 +9,12 @@ The program essentially prompts the user to choose either "Rock", "Paper", or "S
 ## Technology
 
 The ultimate goal of this project was to implenent various **JavaScript** concepets, especially **functions** in order to create this console game.
+
+## Future Implementation
+
+While the game works great as is, there are a number of feature's I plan to add in the future:
+
+- A Graphical Interface
+- The ability to input the players own name
+- The ability for two live players to play each other.
+- The ability to set the number of rounds to be played before a winner is declared.
