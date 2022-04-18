@@ -19,10 +19,14 @@ function computerSelection() {
 
 // playerSelection function
 function playerSelection() {
-    let playerInput = prompt("Please choose 'Rock', 'Paper', or 'Scissors': ");
+    let playerInput = prompt(
+        "Please choose 'Rock', 'Paper', or 'Scissors': ");
     playerInput = playerInput.toLowerCase();
-    while (playerInput !== "rock" && playerInput !== "paper" && playerInput !== "scissors") {
-        playerInput = prompt("Not an Option. Please choose 'Rock', 'Paper', or 'Scissors': ");
+    while (playerInput !== "rock" &&
+        playerInput !== "paper" &&
+        playerInput !== "scissors") {
+        playerInput = prompt(
+            "Not an Option. Please choose 'Rock', 'Paper', or 'Scissors': ");
         playerInput = playerInput.toLowerCase();
     }
     return playerInput;
