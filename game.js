@@ -1,3 +1,4 @@
+//Computer selects rock, paper, or scissor
 function getComputerChoice() {
     function getRandomInt(max) {
         return Math.floor(Math.random() * max);
@@ -14,5 +15,14 @@ function getComputerChoice() {
     return choice;
 }
 
+//Prompt user for choice
+function getHumanChoice() {
+    let choice = prompt("Rock, Paper, or Scissors?");
+    return choice;
+}
+
+//console.log tests
 console.log(getComputerChoice());
+console.log(getHumanChoice());
+
 
