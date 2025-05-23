@@ -1,3 +1,6 @@
+let humanScore = 0;
+let computerScore = 0;
+
 //Computer selects rock, paper, or scissor
 function getComputerChoice() {
     function getRandomInt(max) {
@@ -12,7 +15,6 @@ function getComputerChoice() {
     } else {
         choice = "Scissors";
     }
-    console.log(choice);
     return String(choice).toLowerCase();
 }
 
@@ -22,12 +24,9 @@ function getHumanChoice() {
     return String(choice).toLowerCase();
 }
 
-//Declare human and computer scores, initialized to 0
-let humanScore = 0;
-let computerScore = 0;
-
 //function to play a single round
 function playRound(computerChoice, humanChoice) {
+    //Loop that ends game after 5 rounds
     let result = "";
     if (humanChoice == computerChoice) {
         result = "It's a tie.";
@@ -53,8 +52,22 @@ function playRound(computerChoice, humanChoice) {
     return result;
 }
 
-//console.log tests
+//Function to play a game of 5 rounds
+function playGame() {
 
-console.log(playRound(getComputerChoice(), getHumanChoice()));
-console.log(humanScore);
+    //Declare human and computer scores, initialized to 0
 
+    for (let step = 0; step < 5; step++) {
+        console.log("ROUND " + (step + 1));
+        let computerSelection = getComputerChoice();
+        let humanSelection = getHumanChoice();
+        console.log("User chooses " + humanSelection
+            + " | Computer chooses " + computerSelection);
+        console.log(playRound(computerSelection, humanSelection));
+        console.log("Human Score: "
+            + humanScore + " | Computer score: "
+            + computerScore);
+    }
+}
+
+console.log(playGame());
